@@ -1,4 +1,6 @@
-﻿using MailKit.Security;
+﻿using MailKit;
+using MailKit.Search;
+using MailKit.Security;
 using MimeKit;
 using System;
 using System.Collections.Generic;
@@ -132,5 +134,35 @@ namespace MailKitExtention {
                 client.Disconnect(true);
             }
         }
+
+        //public static void ImapRead(string imapServer, string login, string password, int port = 993) {
+
+        //    using (var client = new MailKit.Net.Imap.ImapClient ()) {
+
+        //        client.Connect(imapServer, port, true);
+        //        client.Authenticate(login, password, );
+
+        //        var inbox = client.Inbox;
+        //        inbox.Open(FolderAccess.ReadOnly);
+
+        //        var doneFolder = client.GetFolder("Done") ?? client.Inbox.Create("Done", true);
+
+        //        var recent = inbox.Recent;
+
+        //        var recentMessages = inbox.Search(SearchQuery.DeliveredAfter(DateTime.Today));
+        //        var notDone = inbox.Search(SearchQuery.NotSeen);
+        //        //for (int i = Math.Max(0, inbox.Count - 10); i < inbox.Count; i++) {
+        //        foreach (var uid in notDone) {
+        //            var message = inbox.GetMessage(uid);
+        //            var from = message.From;
+        //            var subject = message.Subject;
+        //            var date = message.Date;
+        //            var body = message.TextBody;
+
+        //            inbox.AddFlags(uid, MessageFlags.Seen, true);
+        //            inbox.MoveTo(uid, doneFolder);
+        //        }
+        //    }
+        //}
     }
 }
